@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente Inteligente, Casamento Feliz | Por Pr. Weliton Dias</title>
+    <meta name="description" content="Um método que irá fazer você realizar uma viagem em sua própria mente, analisando os pensamentos Disfuncionais e Imaginários que tem Prejudicado seu casamento.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors - Identidade Alto Contraste */
+            --bg-main: #1C1F26;  
+            --bg-alt: #14161A;   
+            --navy: #060B26;     
+            --pink: #F2005A;     
+            --cyan: #00B4D8;     
+            --white: #FFFFFF;    
+            
+            --text-light: #E2E8F0; 
+            --text-dark: #2D3748;  
+            --text-muted: #A0AEC0; 
+            --border: #2D3748;     
+            
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing */
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 7.5rem;   
+            
+            --max-width: 1000px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 12px; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--white);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Utility Classes */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 5%; }
+        .text-center { text-align: center; }
+        .text-pink { color: var(--pink); }
+        .text-cyan { color: var(--cyan); }
+        
+        section { padding: var(--space-xl) 0; }
+
+        .section-header { text-align: center; margin-bottom: var(--space-lg); }
+        .section-title { font-size: 3rem; letter-spacing: -0.5px; margin-bottom: 1rem; color: var(--white); }
+        .section-subtitle {
+            font-size: 0.95rem; text-transform: uppercase; letter-spacing: 3px;
+            color: var(--cyan); font-weight: 700; display: block; margin-bottom: 1rem;
+        }
+
+        /* Video Container Placeholder */
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0; background: #000;
+            border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            margin: 3rem auto 2rem auto; border: 2px solid var(--border); display: flex;
+            align-items: center; justify-content: center; color: var(--text-muted); font-size: 1.2rem; max-width: 800px;
+        }
+        .video-wrapper::before { content: "►"; font-size: 5rem; color: rgba(255,255,255,0.2); position: absolute; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1.2rem 2.8rem; font-family: var(--font-body); font-weight: 700;
+            font-size: 1rem; letter-spacing: 1.5px; transition: var(--transition);
+            cursor: pointer; text-align: center; border-radius: 8px; text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(242, 0, 90, 0.4);
+        }
+
+        .btn-primary { background-color: var(--pink); color: var(--white); border: 2px solid var(--pink); width: 100%; max-width: 500px; }
+        .btn-primary:hover { background-color: var(--white); color: var(--pink); box-shadow: 0 15px 30px rgba(242, 0, 90, 0.6); transform: translateY(-3px); border-color: var(--white); }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 0, 90, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(242, 0, 90, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 0, 90, 0); }
+        }
+        .btn-pulse { animation: pulse 2s infinite; }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* 1, 2, 3. CABEÇALHO, SUBTÍTULO, VÍDEO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            background: radial-gradient(circle at top, var(--bg-alt) 0%, var(--bg-main) 100%);
+            padding-top: 4rem; padding-bottom: 2rem; text-align: center;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 0 auto 1.5rem auto; max-width: 850px; color: var(--white); line-height: 1.2; }
+        .hero h1 span { color: var(--pink); font-style: italic; }
+        .hero-desc { font-size: 1.25rem; color: var(--text-light); font-weight: 300; max-width: 750px; margin: 0 auto 1rem auto; opacity: 0.9; }
+
+        /* GATILHOS EMOCIONAIS (Pain, Dream, Fear) */
+        .dores { background-color: var(--bg-main); border-top: 1px solid var(--border); }
+        .pain-list { list-style: none; max-width: 800px; margin: 3rem auto 0 auto; }
+        .pain-item { background-color: var(--bg-alt); padding: 1.5rem 2rem; border-left: 4px solid var(--pink); margin-bottom: 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 1.5rem; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: 400; }
+        .pain-icon { color: var(--pink); font-size: 1.8rem; }
+
+        .dream-state { background-color: var(--cyan); color: var(--navy); text-align: center; border-top: 2px solid var(--white); border-bottom: 2px solid var(--white); }
+        .dream-state .section-title { color: var(--navy); letter-spacing: -1px; }
+
+        .consequencia { background-color: var(--bg-main); border-top: 1px solid var(--border); }
+
+        /* 4. APRESENTAÇÃO DO PRODUTO */
+        .metodo { background-color: var(--white); color: var(--text-dark); }
+        .metodo h2 { color: var(--navy); }
+        .texto-destaque { font-size: 2rem; line-height: 1.4; font-family: var(--font-serif); font-style: italic; text-align: center; max-width: 800px; margin: 0 auto; font-weight: 500; color: var(--navy); }
+        .texto-destaque strong { color: var(--pink); font-weight: 700; }
+        .metodo-content { margin-top: 3rem; font-size: 1.15rem; line-height: 1.8; max-width: 750px; margin: 3rem auto 0 auto; text-align: center; color: var(--text-dark); }
+        .metodo-content p { margin-bottom: 1.5rem; }
+
+        /* PUBLICO ALVO */
+        .publico-alvo { background-color: var(--bg-alt); }
+        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .target-card { background-color: var(--white); color: var(--navy); padding: 3rem 2rem; border-radius: var(--radius); text-align: left; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transition: var(--transition); }
+        .target-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 180, 216, 0.2); }
+        .check-icon { color: var(--cyan); font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: bold; }
+        .target-card h4 { color: var(--navy); font-size: 1.4rem; margin-bottom: 1rem; font-family: var(--font-body); font-weight: 700; letter-spacing: -0.5px; }
+
+        /* 5. BENEFÍCIOS CLAROS */
+        .modulos { background-color: var(--bg-main); }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background-color: var(--bg-alt); padding: 3rem 2rem; border-radius: var(--radius); text-align: center; border: 1px solid var(--border); transition: var(--transition); }
+        .card:hover { transform: translateY(-8px); border-color: var(--pink); box-shadow: 0 10px 30px rgba(242, 0, 90, 0.1); }
+        .card-icon { background-color: var(--navy); width: 70px; height: 70px; margin: 0 auto 1.5rem auto; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--cyan); border: 1px solid var(--cyan); }
+        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); font-family: var(--font-body); font-weight: 700; letter-spacing: -0.5px; }
+
+        /* 6. GATILHO DE URGÊNCIA */
+        .urgencia { background-color: var(--pink); color: var(--white); text-align: center; padding: 4rem 5%; }
+        .urgencia h2 { color: var(--white); font-size: 2.2rem; margin-bottom: 1rem; font-family: var(--font-body); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        .urgencia p { font-size: 1.15rem; max-width: 800px; margin: 0 auto; font-weight: 500; opacity: 0.9; }
+
+        /* 7. PREÇO JUSTIFICADO */
+        .ancoragem { background-color: var(--bg-alt); text-align: center; }
+
+        /* 8. GARANTIA DE SATISFAÇÃO */
+        .garantia-destaque { background-color: var(--bg-main); padding: 5rem 0; border-bottom: 1px solid var(--border); }
+        .garantia-box { display: flex; align-items: center; gap: 3rem; background-color: var(--white); color: var(--navy); padding: 3rem; border-radius: var(--radius); box-shadow: 0 10px 40px rgba(0,0,0,0.5); max-width: 900px; margin: 0 auto; border: 4px solid var(--cyan); }
+        .garantia-shield { font-size: 6rem; color: var(--cyan); }
+        .garantia-text h3 { color: var(--navy); font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-body); font-weight: 800;}
+        .garantia-text p { color: var(--text-dark); font-size: 1.05rem; line-height: 1.6; }
+
+        /* 9. TESTEMUNHOS / PROVA SOCIAL (Muito mais evidente agora) */
+        .depoimentos { background-color: var(--bg-alt); }
+        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .testi-card { background-color: var(--bg-main); color: var(--text-light); padding: 2.5rem; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; border-left: 4px solid var(--cyan); }
+        .testi-stars { color: var(--pink); font-size: 1.2rem; margin-bottom: 1rem; }
+        .testi-quote { font-style: italic; margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.6; }
+        .testi-author { display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+        .testi-avatar { width: 50px; height: 50px; border-radius: 50%; background-color: var(--border); display: flex; justify-content: center; align-items: center; color: var(--pink); font-weight: bold; }
+        .testi-name { font-weight: 700; color: var(--white); }
+
+        /* 10. CHAMADA PARA AÇÃO (Oferta Core) */
+        .oferta { background-color: var(--bg-main); position: relative; }
+        .price-box { background-color: var(--white); color: var(--navy); border-radius: var(--radius); padding: 4.5rem 3rem 4rem 3rem; max-width: 550px; margin: 0 auto; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(242, 0, 90, 0.1); border: 4px solid var(--pink); position: relative; }
+        .badge { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); background-color: var(--pink); color: var(--white); padding: 0.8rem 2rem; border-radius: 40px; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; box-shadow: 0 10px 20px rgba(242, 0, 90, 0.4); }
+        .price-box h3 { font-size: 2.2rem; font-family: var(--font-body); margin-bottom: 0.5rem; color: var(--navy); font-weight: 800; }
+        .price-old { font-size: 1.2rem; color: var(--text-muted); text-decoration: line-through; margin-top: 1rem; display: block; }
+        .price-value { font-size: 5rem; font-weight: 800; color: var(--pink); margin: 0; line-height: 1; font-family: var(--font-body); letter-spacing: -2px; }
+        .price-value small { font-size: 2rem; font-weight: 600; vertical-align: super; margin-right: -5px; }
+
+        /* 11. BÔNUS / OFERTAS ESPECIAIS */
+        .bonus { background-color: var(--bg-alt); }
+        .bonus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .bonus-card { background-color: var(--bg-main); padding: 3rem 2rem; border-radius: var(--radius); border: 2px dashed var(--cyan); text-align: center; position: relative; transition: var(--transition); }
+        .bonus-card:hover { border-color: var(--pink); transform: translateY(-5px); }
+        .bonus-badge { background-color: var(--cyan); color: var(--navy); padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); }
+        .bonus-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+        /* 12. CREDIBILIDADE / AUTORIDADE */
+        .autor { background-color: var(--white); color: var(--text-dark); border-top: 4px solid var(--pink); }
+        .autor-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 900px; margin: 0 auto; }
+        .autor-img { width: 100%; aspect-ratio: 1/1; background-color: var(--bg-alt); border-radius: 50%; border: 6px solid var(--navy); display: flex; align-items: center; justify-content: center; color: var(--text-muted); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); overflow: hidden; position: relative; }
+
+        /* 13. ÚLTIMA CHAMADA PARA AÇÃO (CTA Final) */
+        .cta-final { background-color: var(--navy); text-align: center; padding: 6rem 5%; border-top: 2px solid var(--cyan); }
+        .cta-final h2 { color: var(--white); font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .cta-final p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-inline: auto; line-height: 1.8; }
+
+        /* FAQ */
+        .faq { background-color: var(--bg-alt); border-top: 1px solid var(--border); }
+        .faq-container { max-width: 800px; margin: 3rem auto 0 auto; }
+        details.faq-item { background-color: var(--bg-main); border: 1px solid var(--border); margin-bottom: 1rem; border-radius: 8px; overflow: hidden; transition: var(--transition); }
+        details.faq-item:hover { border-color: var(--pink); }
+        details.faq-item summary { padding: 1.5rem 2rem; font-size: 1.15rem; font-weight: 600; color: var(--white); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; }
+        details.faq-item summary::-webkit-details-marker { display: none; }
+        details.faq-item summary::after { content: '+'; color: var(--cyan); font-size: 1.8rem; transition: var(--transition); }
+        details.faq-item[open] summary::after { content: '−'; color: var(--pink); }
+        details.faq-item p { padding: 0 2rem 1.5rem 2rem; color: var(--text-muted); font-size: 1rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 1rem; padding-top: 1.5rem; }
+
+        /* FOOTER */
+        footer { background-color: var(--bg-main); text-align: center; padding: 3rem; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* Resposive Fixes */
+        @media (max-width: 900px) {
+            .autor-grid, .garantia-box { grid-template-columns: 1fr; text-align: center; gap: 2rem; flex-direction: column; }
+            .autor-img { max-width: 300px; margin: 0 auto; }
+            .garantia-shield { font-size: 4rem; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .price-box { padding: 3rem 1.5rem; }
+            .price-value { font-size: 3.5rem; }
+            .price-value small { font-size: 1.5rem; }
+            .btn-primary { font-size: 0.8rem; padding: 1.2rem; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1 & 2. CABEÇALHO E SUBTÍTULO + 3. VÍDEO -->
+    <section class="hero" id="inicio">
+        <div class="container reveal">
+            <span class="section-subtitle">O Caminho Para a Cura do Casamento</span>
+            <h1>Mente Inteligente, <span>Casamento Feliz</span></h1>
+            <p class="hero-desc">Descubra como dominar a sua mente, quebrar o ciclo de brigas e restaurar a paz definitiva no seu relacionamento agindo na verdadeira raiz do problema.</p>
+            
+            <div class="video-wrapper">
+                <p>O Vídeo de Vendas / Prova Social aparecerá aqui</p>
+            </div>
+            
+            <a href="#oferta" class="btn btn-primary btn-pulse">Quero Salvar Meu Casamento Agora</a>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);">Assista ao vídeo antes de prosseguir.</p>
+        </div>
+    </section>
+
+    <!-- (EXTRA DA V2) GATILHO: IDENTIFICAÇÃO E DOR -->
+    <section class="dores">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle">Sinais de Alerta</span>
+                <h2 class="section-title">O seu casamento enfrenta alguma dessas situações?</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 0 auto; font-size: 1.1rem;">A crise conjugal muitas vezes é apenas o sintoma final de pensamentos silenciosos que nunca foram tratados da forma correta.</p>
+            </div>
+            
+            <ul class="pain-list">
+                <li class="pain-item reveal delay-1">
+                    <span class="pain-icon">⚠️</span>
+                    Vocês discutem todos os dias pelos mesmos motivos bobos, gerando cansaço sem solução.
+                </li>
+                <li class="pain-item reveal delay-2">
+                    <span class="pain-icon">⚠️</span>
+                    A confiança está tão distante que tudo irrita, e o "primeiro amor" foi engolido pela frieza.
+                </li>
+                <li class="pain-item reveal delay-3">
+                    <span class="pain-icon">⚠️</span>
+                    Você sofre de exaustão emocional ou neurose com medos irreais criando cenários tristes para o futuro.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- (EXTRA DA V2) GATILHO: O SONHO (CONTRASTE) -->
+    <section class="dream-state">
+        <div class="container reveal">
+            <h2 class="section-title" style="padding: 3rem 0; font-size: 2.2rem; line-height: 1.5;">
+                Mas imagine chegar em casa e encontrar <strong>paz</strong>, sendo compreendido e sentindo que o seu cônjuge é, de fato, <strong>seu porto seguro</strong> novamente. Isso é curar a Mente.
+            </h2>
+        </div>
+    </section>
+
+    <!-- (EXTRA DA V2) CONSEQUÊNCIA -->
+    <section class="consequencia">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle" style="color: var(--pink);">A Dura Realidade</span>
+                <h2 class="section-title">Qual é o custo do divórcio?</h2>
+            </div>
+            <p style="text-align: center; max-width: 850px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted); line-height: 1.8;">
+                Ignorar o problema apenas o empurra para debaixo do tapete. Qual é o custo financeiro, psicológico e, principalmente, espiritual de uma separação traumática que poderia ter sido evitada hoje através da renovação inteligente da sua mente?
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. APRESENTAÇÃO DO PRODUTO / MÉTODO -->
+    <section class="metodo" id="sobre">
+        <div class="container reveal">
+            <p class="texto-destaque">Porque... <br><br>"Tudo começa e conclui em nossos <strong>Pensamentos</strong>."</p>
+            <div class="metodo-content">
+                <p>O método <strong>Mente Inteligente, Casamento Feliz</strong> irá forçar você a realizar uma viagem crua por dentro da sua própria mente, para aniquilar as <em>ilusões imaginárias</em> que arruinam o seu casamento há anos.</p>
+                <p>A crise não nasce na discussão na sala de estar, mas muito antes, nas expectativas adoecidas da sua cabeça. Descobrir e expurgar a raiz psíquica com terapias guiadas pela fé cristã é a verdadeira chave da libertação.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- (EXTRA DA V2) PÚBLICO ALVO -->
+    <section class="publico-alvo">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle">Para quem é?</span>
+                <h2 class="section-title">O Resgate Perfeito Para:</h2>
+            </div>
+            <div class="target-grid">
+                <div class="target-card reveal delay-1">
+                    <div class="check-icon">✓</div>
+                    <h4>Casais na Beira do Limite</h4>
+                    <p>Para quem deseja parar de "enxugar gelo" nas terapias e matar a fúria da rotina.</p>
+                </div>
+                <div class="target-card reveal delay-2">
+                    <div class="check-icon">✓</div>
+                    <h4>Cônjuges que Lutam Sozinhos</h4>
+                    <p>Ao quebrar o seu ciclo imaginário destrutivo, o seu comportamento mudará toda a atmosfera em casa.</p>
+                </div>
+                <div class="target-card reveal delay-3">
+                    <div class="check-icon">✓</div>
+                    <h4>Noivos Inteligentes</h4>
+                    <p>Pare de herdar maldições e padrões dos seus pais. Blinde o seu "Sim" no altar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BENEFÍCIOS CLAROS -->
+    <section class="modulos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Conteúdo Terapêutico Direto</span>
+                <h2 class="section-title">O Que Você Vai Destravar</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card reveal delay-1">
+                    <div class="card-icon">🧠</div>
+                    <h3>Quebra de Códigos Traumáticos</h3>
+                    <p>Rastreie e exploda crenças alojadas na sua identidade psíquica. Pare de se ofender tão fácil com as atitudes imperfeitas do cônjuge.</p>
+                </div>
+                <div class="card reveal delay-2">
+                    <div class="card-icon">🚧</div>
+                    <h3>O Fim da Mente Imaginária</h3>
+                    <p>O fim das brigas com fantasmas. Destrua expectativas irreais e ilusões, e volte a enxergar a realidade com esperança e compaixão profunda.</p>
+                </div>
+                <div class="card reveal delay-3">
+                    <div class="card-icon">💖</div>
+                    <h3>Ação Restauradora Clínica</h3>
+                    <p>Aplique estratégias práticas de comunicação defensiva (Psicologia Clínica) misturadas em perdão para reacender fisiologicamente o primeiro amor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. GATILHO DE URGÊNCIA -->
+    <section class="urgencia reveal">
+        <h2>Atenção: Turma com Vagas Restritas e Com Desconto Inicial</h2>
+        <p>A condição especial de fundadores será encerrada e reajustada para seu valor de terapia tradicional muito em breve para garantir a qualidade de suporte.</p>
+    </section>
+
+    <!-- 7. PREÇO JUSTIFICADO (ANCORAGEM) -->
+    <section class="ancoragem">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle">A Verdade Sobre o Valor</span>
+                <h2 class="section-title">Quanto Vale o Futuro da Sua Casa?</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; color: var(--text-light); line-height: 1.8;">
+                Se hoje você entrasse num consultório de psicologia familiar, preparare-se para desembolsar <strong>de R$ 1.500 a R$ 3.000 mensais</strong> (consultas custam em média R$ 300).
+                <br><br>
+                Mas estruturei todo este material profundo e prático em um módulo veloz à prova de desculpas, num formato onde todo investimento doloroso foi aniquilado.
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GARANTIA DE SATISFAÇÃO -->
+    <section class="garantia-destaque">
+        <div class="container reveal">
+            <div class="garantia-box">
+                <div class="garantia-shield">🛡️</div>
+                <div class="garantia-text">
+                    <h3>Garantia Incondicional: Risco Zero (7 Dias)</h3>
+                    <p>O nível de excelência desta metodologia é absoluto. Adquira e consuma os conteúdos. Se você não presenciar ou vivenciar uma mudança gritante no modo de gerir suas emoções perante o seu parceiro em até 7 dias... você devolve na plataforma com um clique. <strong>Todo seu investimento de R$97 é estornado integralmente para você. Sem burocracia.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TESTEMUNHOS / PROVA SOCIAL (O GRANDE DESTAQUE AQUI) -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle">Prova Viva: Vidas Restauradas</span>
+                <h2 class="section-title">Famílias Que Já Foram Curadas Por Este Método</h2>
+            </div>
+            
+            <div class="testi-grid">
+                <div class="testi-card reveal delay-1">
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testi-quote">"Nós estávamos literalmente por um fio, era palavra de 'divórcio' para cima e para baixo. Depois que eu apliquei a Quebra da Mente Imaginária, eu percebi estar brigando com uma sombra que só existia na minha cabeça cobrando dele expectativas surreais. Choramos juntos e nosso casamento renasceu."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">R</div>
+                        <div>
+                            <span class="testi-name">Raquel & Carlos F.</span>
+                            <span style="display: block; font-size: 0.85rem; color: var(--text-muted);">Alunos do Método M.I</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testi-card reveal delay-2">
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testi-quote">"Achei que meu problema fosse falta de amor ou 'incompatibilidade'. Nunca passou pela cabeça que meus pensamentos mentiam pra mim todos os dias. O Pastor Weliton me fez ver a raiz da amargura. Esse método cristão superou fácil a ajuda clínica isolada que eu fazia no ano passado!"</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">M</div>
+                        <div>
+                            <span class="testi-name">Marcos Assis</span>
+                            <span style="display: block; font-size: 0.85rem; color: var(--text-muted);">Casado há 12 anos.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testi-card reveal delay-3">
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testi-quote">"Fiz primeiro sozinha! Meu marido notou a minha mudança radical de postura e de paz em duas semanas. Simplesmente parei de brigar por futilidade porque a inteligência emocional do curso me sarou. Hoje ele estuda o curso comigo de noite."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">A</div>
+                        <div>
+                            <span class="testi-name">Amanda Silva</span>
+                            <span style="display: block; font-size: 0.85rem; color: var(--text-muted);">Aluna Turma #2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CHAMADA PARA AÇÃO (Oferta Core) -->
+    <section class="oferta" id="oferta">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">A Paz Que a Sua Casa Merece</h2>
+                <p class="text-muted">Aproveite a condição agora mesmo antes da alteração de lote.</p>
+            </div>
+
+            <div class="price-box">
+                <div class="badge">Acesso Integral & Vitalício Ofertado</div>
+                <h3 style="color: var(--navy); font-size: 2rem;">Mente Inteligente</h3>
+                <span class="price-old">Valor Regular: R$ 197,00</span>
+                <p class="price-value" style="margin-top: 0.5rem;"><small>Hoje Por R$</small> 97<small>,00</small></p>
+                
+                <ul style="text-align: left; margin: 2rem auto; max-width: 350px; font-size: 1rem; color: var(--navy); line-height: 2;">
+                    <li>✓ Acesso Imediato a Todas as Aulas</li>
+                    <li>✓ Ferramentas de Exercícios Psicológicos</li>
+                    <li>✓ Intervenção Clínica Aliada à Fé</li>
+                </ul>
+
+                <div style="margin: 2.5rem 0;">
+                    <!-- Hotmart Link Oficial (Preservado fielmente) -->
+                    <a href="https://pay.hotmart.com/X89005109Y?sck=HOTMART_PRODUCT_PAGE&off=07kqhlcx&hotfeature=32&_gl=1*gy0j81*_gcl_au*MTczMjUzNjY5OS4xNzY3ODc5NDA2LjcwMTA1NDUzMy4xNzY5NzE1MjI1LjE3Njk3MTUyMjU.*FPAU*MTczMjUzNjY5OS4xNzY3ODc5NDA2*_ga*MTY3ODk0NzcwOS4xNzY3ODc5NDA2*_ga_GQH2V1F11Q*czE3NzQzNTc0NzAkbzM5JGcxJHQxNzc0MzU3NDY5JGo2MCRsMCRoMTE0NDc3NTQzNw.." target="_blank" class="btn btn-primary btn-pulse" style="width:100%; max-width:100%;">
+                        QUERO COMPRAR AGORA
+                    </a>
+                </div>
+                
+                <p style="font-size: 0.9rem; color: var(--text-muted);">💳 Compra Criptografada Pela Hotmart &bull; Receba o Link Logo Após o Pagamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. BÔNUS / OFERTAS ESPECIAIS -->
+    <section class="bonus">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Ainda não acabou...</span>
+                <h2 class="section-title">Bônus Exclusivos Para Você</h2>
+                <p class="text-muted">Garantindo sua inscrição nas condições promocionais pelo valor irrisório de **R$ 97**, você engole todos os medos com presentes valiosos.</p>
+            </div>
+            
+            <div class="bonus-grid">
+                <div class="bonus-card reveal delay-1">
+                    <div class="bonus-badge">Presente Especial (R$ 47 → GRÁTIS)</div>
+                    <div class="bonus-icon">📖</div>
+                    <h3 style="color:var(--white); font-size:1.3rem; margin-bottom:1rem;">Livro: Vencendo a Ansiedade</h3>
+                    <p style="color:var(--text-muted); font-size:0.95rem;">Receba também a cópia digital do meu material "Vencendo a Ansiedade à Luz da Bíblia", ensinando os recursos clínicos de acalmar e estabilizar o nível tóxico de stress diário.</p>
+                </div>
+                <div class="bonus-card reveal delay-2">
+                    <div class="bonus-badge">Surpresa (R$ 67 → GRÁTIS)</div>
+                    <div class="bonus-icon">📝</div>
+                    <h3 style="color:var(--white); font-size:1.3rem; margin-bottom:1rem;">Exercício de Análise Sensorial</h3>
+                    <p style="color:var(--text-muted); font-size:0.95rem;">Um arquivo em PDF de apoio espetacular, mapeando em modo 'teste' onde seu casamento tem goteiras emocionais que vazam energia à toda semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. CREDIBILIDADE / AUTORIDADE -->
+    <section class="autor" id="autor">
+        <div class="container reveal">
+            <div class="autor-grid">
+                <div class="autor-img" style="padding: 0;">
+                    <img src="https://i.ibb.co/Cs45XWMt/welitondias.webp" alt="Pr. Weliton Dias" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div>
+                    <span class="section-subtitle">O seu Terapeuta e Curador</span>
+                    <h2 class="section-title" style="color: var(--navy); font-size: 2.5rem; margin-bottom: 2rem;">Quem é Weliton Dias?</h2>
+                    <p style="color: var(--text-dark); margin-bottom: 1.5rem; line-height: 1.8;">Sou brutalmente movido pelo propósito de reconstruir lares abalados pela psiquê desvirtuada. Com minha extensão acadêmica e religiosa atuando como <strong>Pastor, Psicólogo e Terapeuta</strong>, formei e validei este modelo tático de intervenção profunda entrelaçando o poder empírico da ciência neurocognitiva e psicoterapêutica, à inestimável capacidade perdoadora provada pelo evangelho cristão e sacrifício divino.</p>
+                    <p style="color: var(--text-dark); line-height: 1.8;">A verdade irrefutável de trás dos divórcios doloridos é esta: <em>"Nossos problemas primários com os parceiros quase nunca se encontram de fora: Eles estão gritando lá dentro das ficções iradas fabricadas pela mente cega"</em>. Te darei esse mapa poderoso e letal pra libertação da mente agora nestas aulas em vídeos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-subtitle">Tire suas hesitações finais</span>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>As aulas substituem o consultório de terapia individual/da dupla?</summary>
+                    <p>Mente Inteligente fornece diretrizes rápidas para tratar os abismos sentimentais crônicos que casais cometem. Para abalos médios e graves funciona perfeitamente, mas se há diagnósticos patológicos psiquiátricos pré-existentes, o suporte clínico nunca deveria ser completamente descartado!</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Minha fé e cosmovisão não é cristã. Posso executar esse método?</summary>
+                    <p>Positivo! Esse arsenal prático tira 80% do peso diretamente das abordagens testadas na Psicologia Clínica contemporânea, envelopadas perfeitamente e alicerçada na tese suprema ética ocidental proveniente da Teologia Cristã Evangélica base (Perdão, Compaixão, Renúncia). O material transforma mentes se aplicar atenciosamente.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. ÚLTIMA CHAMADA PARA AÇÃO (CTA Final) -->
+    <section class="cta-final">
+        <div class="container reveal">
+            <h2>A Paz do Seu Lar e Dos Filhos Está Só Aguardando Uma Única Decisão Sua Agora.</h2>
+            <p>Você compreende perfeitamente que o saber e os medos não levam ninguém em local mais calmo; as execuções táticas é o que reparam caminhos fraturados de casamentos rasgados. Cure sua percepção distorcida (os pensamentos e os fantasmas ilusórios) do parceiro tomando essa ferramenta fundamental terapêutica na mão com tranquilidade pelo valor ilusório que cobramos hoje antes dessa página reajustar.</p>
+            <a href="#oferta" class="btn btn-primary btn-pulse" style="font-size: 1.2rem; padding: 1.5rem 3rem;">Sim, Quero Dar O Primeiro Grande Passo Clicando Aqui Para Pagar</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 Weliton Dias. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;"><a href="index.html">← Retornar à Tela Inicial Terapêutica</a></p>
+    </footer>
+
+    <!-- SCROLL REVEAL JAVASCRIPT -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 50; 
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger reveal immediately for elements already in viewport
+        reveal();
+    </script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinário: Como Resolver Conflitos Sem Perder o Controle Emocional | Weliton Dias</title>
+    <meta name="description" content="Aprenda a dominar seus pensamentos e restaurar a paz no seu relacionamento. Evento online com Weliton Dias.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de Cores Fornecida */
+            --deep-blue: #455A75;
+            --serene-blue: #89A6BA;
+            --cozy-brown: #77512D;
+            --soft-beige: #F3E3D6;
+            
+            /* Utils */
+            --white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-muted: #5D6D7E;
+            
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 12px;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--deep-blue);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 2.8rem;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--cozy-brown);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(119, 81, 45, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(119, 81, 45, 0.4);
+            background-color: #5d3f23;
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--soft-beige) 0%, #E9D7C8 100%);
+            padding-top: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: var(--serene-blue);
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+
+        .hero h1 span {
+            color: var(--cozy-brown);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-weight: 400;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+
+        .meta-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Context Section */
+        .contexto {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--serene-blue);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 3rem;
+        }
+
+        .copy-block {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            text-align: center;
+        }
+
+        .copy-block p {
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background-color: var(--soft-beige);
+            padding: 3rem;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--cozy-brown);
+            margin: 3rem 0;
+            text-align: left;
+        }
+
+        /* Grid de Aprendizado */
+        .aprendizado {
+            background-color: var(--deep-blue);
+            color: var(--white);
+        }
+
+        .aprendizado h2 {
+            color: var(--white);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--serene-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Expert Section */
+        .expert {
+            background-color: var(--white);
+        }
+
+        .expert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .expert-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: 20px 20px 0 var(--soft-beige);
+        }
+
+        /* Oferta */
+        .oferta {
+            text-align: center;
+            background: linear-gradient(rgba(69, 90, 117, 0.05), rgba(69, 90, 117, 0.05));
+        }
+
+        .price-card {
+            background-color: var(--white);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 2px solid var(--soft-beige);
+        }
+
+        .price-value {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            margin: 1rem 0;
+            font-family: var(--font-body);
+        }
+
+        .price-value span {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        /* FAQ */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--soft-beige);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            color: var(--deep-blue);
+        }
+
+        .faq-item p {
+            padding-top: 1rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .expert-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .expert-img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .event-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content reveal">
+            <span class="event-badge">Webinário Online e Ao Vivo</span>
+            <h1>Como Resolver Conflitos Sem <span>Perder o Controle Emocional</span></h1>
+            <p class="hero-desc">Um guia prático unindo psicologia e fundamentos da fé para transformar a comunicação e fortalecer a conexão no seu dia a dia.</p>
+            
+            <div class="event-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📅</span> 08 de Maio de 2026
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🕗</span> 20:00 (Brasília)
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">📍</span> Ao Vivo via Zoom
+                </div>
+            </div>
+
+            <a href="#oferta" class="btn btn-primary">Reservar Minha Vaga por R$ 27</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Vagas limitadas para interação ao vivo no Zoom.</p>
+        </div>
+    </section>
+
+    <!-- CONTEXTO SECTION -->
+    <section class="contexto" id="sobre">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="subtitle">A Raiz do Problema</span>
+                <h2 class="section-title">Onde as brigas realmente começam?</h2>
+            </div>
+
+            <div class="copy-block">
+                <p>Muitos conflitos não começam nas atitudes… <strong>começam na forma de pensar.</strong></p>
+                <p>Seu relacionamento poderia ser mais leve, mais conectado e mais equilibrado? Muitas vezes, a forma como a comunicação acontece pode influenciar diretamente na conexão entre o casal.</p>
+                
+                <div class="highlight-box">
+                    <p>“Não se trata de perfeição… mas de evolução constante. Se a intenção é construir um relacionamento mais saudável e consciente, vale a pena conhecer este caminho.”</p>
+                </div>
+
+                <p>No dia 08 de maio, vou compartilhar com você ferramentas práticas para desenvolver mais equilíbrio, melhorar o diálogo e fortalecer o relacionamento, independente da fase que vocês estejam passando.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE VOCÊ VAI APRENDER -->
+    <section class="aprendizado">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="subtitle" style="color: var(--white); opacity: 0.7;">Conteúdo Exclusivo</span>
+                <h2 class="section-title">O que vamos desenvolver juntos:</h2>
+            </div>
+
+            <div class="grid">
+                <div class="card reveal delay-1">
+                    <h3>Identificação de Padrões</h3>
+                    <p>Entenda como seus pensamentos automáticos geram reações emocionais que sabotam o diálogo.</p>
+                </div>
+                <div class="card reveal delay-2">
+                    <h3>Comunicação Consciente</h3>
+                    <p>Aprenda a expressar suas necessidades sem gerar defensividade ou ataques ao parceiro.</p>
+                </div>
+                <div class="card reveal delay-3">
+                    <h3>Fundamentos de Fé</h3>
+                    <p>Como aplicar princípios bíblicos de paciência, perdão e domínio próprio na resolução real de crises.</p>
+                </div>
+                <div class="card reveal delay-1">
+                    <h3>Evolução de Goiânia</h3>
+                    <p>Um encontro focado em preparar casais da nossa região para uma nova etapa de conexão e crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERT SECTION -->
+    <section class="expert">
+        <div class="container reveal">
+            <div class="expert-grid">
+                <img src="https://i.ibb.co/Cs45XWMt/welitondias.webp" alt="Weliton Dias" class="expert-img">
+                <div>
+                    <span class="subtitle">Conduzido por</span>
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Weliton Dias</h2>
+                    <p>Pastor, Psicólogo e Terapeuta, Weliton Dias dedica sua vida a ajudar pessoas e casais a superarem desafios emocionais sob a luz da fé cristã e fundamentado na psicologia científica.</p>
+                    <p style="margin-top: 1rem;">Com anos de experiência em aconselhamento pastoral e clínico, ele desenvolveu uma abordagem única que une a compreensão profunda da mente humana com os valores inegociáveis do evangelho.</p>
+                    <p style="margin-top: 1rem;">Agora, ele traz esse conhecimento de forma acessível e direta para este webnário estratégico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA SECTION -->
+    <section class="oferta" id="oferta">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="subtitle">Garantia de Vaga</span>
+                <h2 class="section-title">Invista em seu Relacionamento</h2>
+            </div>
+
+            <div class="price-card">
+                <p style="font-weight: 700; color: var(--cozy-brown); text-transform: uppercase; letter-spacing: 2px;">Inscrição Confirmada</p>
+                <div class="price-value"><span>R$</span>27</div>
+                <ul style="text-align: left; margin: 2rem 0; list-style: none;">
+                    <li style="margin-bottom: 1rem;">✅ Acesso à sala VIP do Zoom</li>
+                    <li style="margin-bottom: 1rem;">✅ Sessão de Q&A (Perguntas e Respostas)</li>
+                    <li style="margin-bottom: 1rem;">✅ Material de apoio exclusivo em PDF</li>
+                    <li style="margin-bottom: 1rem;">✅ Gravação disponível por 7 dias</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Quero Garantir Meu Lugar</a>
+                <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">Pagamento seguro via Hotmart/Kiwify. Sua paz não tem preço, mas tem um caminho.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="subtitle">Dúvidas Frequentes</span>
+                <h2 class="section-title">Perguntas Comuns</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details class="faq-item">
+                    <summary>Como receberei o link do Zoom? <span>+</span></summary>
+                    <p>O link será enviado para o seu e-mail cadastrado imediatamente após a confirmação do pagamento e também 30 minutos antes do início do evento.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Posso assistir com meu cônjuge? <span>+</span></summary>
+                    <p>Com certeza! Incentivamos que o casal assista junto na mesma tela utilizando apenas uma única inscrição.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>O evento será gravado? <span>+</span></summary>
+                    <p>Sim, todos os inscritos terão acesso à gravação por um período de 7 dias após o evento.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>A inscrição é segura? <span>+</span></summary>
+                    <p>Sim, utilizamos plataformas de pagamento criptografadas reconhecidas no mercado para total segurança do seu investimento.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Weliton Dias. Todos os direitos reservados para Goiânia e Região.</p>
+            <p style="margin-top: 1rem; opacity: 0.6;"><a href="index.html" style="color: white; text-decoration: none;">Voltar para Home</a></p>
+        </div>
+    </footer>
+
+    <!-- SCROLL REVEAL SCRIPT -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger initial
+    </script>
+</body>
+</html>

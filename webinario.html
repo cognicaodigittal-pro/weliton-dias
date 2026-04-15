@@ -348,6 +348,27 @@
             font-size: 0.9rem;
         }
 
+        /* Video Container */
+        .video-wrapper {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            margin: 2.5rem auto 3rem auto;
+            border-radius: var(--radius);
+            box-shadow: 0 25px 50px rgba(69, 90, 117, 0.25);
+            border: 6px solid var(--white);
+            background: #000;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .expert-grid {
@@ -383,6 +404,11 @@
             <h1>Como Resolver Conflitos Sem <span>Perder o Controle Emocional</span></h1>
             <p class="hero-desc">Um guia prático unindo psicologia e fundamentos da fé para transformar a comunicação e fortalecer a conexão no seu dia a dia.</p>
             
+            <!-- Video VSL -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/p25GLrxV3Ac?rel=0&showinfo=0&modestbranding=1" title="Como Resolver Conflitos Sem Perder o Controle Emocional" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
             <div class="event-meta">
                 <div class="meta-item">
                     <span class="meta-icon">📅</span> 08 de Maio de 2026
